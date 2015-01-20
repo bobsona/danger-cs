@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GameCity</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="colorbox.css">
+	<link rel="stylesheet" href="jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.css">
+</head>
+<body>
+	<header id="header"></header>
+	<div id="content" class='mainWidth'>
+		<input id='navToggle' type='checkbox' />
+		<label for='navToggle'></label>
+		<nav id="mainNav">
+			<ul class='inlineContainer'>
+				<li class='selected'><a href='index.html'>Home</a></li>
+				<li><a href='article.html'>Articles</a></li>
+				<li><a href='gallery.html'>Gallery</a></li>
+				<li><a href='profile.html'>Profile</a></li>
+				<li>
+					<a>Menu</a>
+					<ul class='submenu'>
+						<li><a href='#'>Link #1</a></li>
+						<li><a href='#'>Link #2</a></li>
+						<li><a href='#'>Link #3</a></li>
+						<li><a href='#'>Link #4</a></li>
+						<li><a href='#'>Link #5</a></li>
+					</ul>
+				</li>
+				<li><a href='extra.html'>Extra</a></li>
+				<li id='userNavigation'>
+					<div class='avatarWrap'>
+						<img class='avatar' src='placeholders/35x35_avatar_index.jpg' alt='Avatar' />
+						<div class='messages'>3</div>
+					</div>
+					<span class='username'>Lorem ipsum</span>
+					<ul class='submenu right'>
+						<li><a href='#'>Messages <span class='messages'>(3)</span></a></li>
+						<li><a href='#'>Options</a></li>
+						<li><a href='#'>Administration</a></li>
+						<li><a href='#'>Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		<div id='slidebox'>
+			<div class='inner'>
+				<div class='left'><div></div></div>
+				<div class='right'><div></div></div>
+				<div class='images'>
+					<div class='slideImage'>
+						<img src='placeholders/slider1.jpg' alt='Aliquam rutrum sapien et augue malesuada, sit amet ornare urna semper.' />
+						<a href='article.html'></a>
+					</div>
+					<div class='slideImage'>
+						<img src='placeholders/slider2.jpg' alt='In et lorem placerat, hendrerit nulla sed, sollicitudin arcu.' />
+						<a href='article.html'></a>
+					</div>
+					<div class='slideImage'>
+						<img src='placeholders/slider3.jpg' alt='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rutrum sapien et augue malesuada, sit amet ornare urna semper. Sed ornare, sapien vitae vestibulum sollicitudin, diam enim fermentum lectus, eget pretium diam dolor ac magna. Aenean faucibus luctus iaculis. Curabitur vel lacinia metus, vitae tincidunt ligula. Curabitur euismod dolor ut elit porttitor tempor. Nullam congue, ligula non dictum sagittis, massa orci aliquet quam, ut facilisis orci leo in quam. Morbi gravida eros eget sem cursus interdum vel id nulla. Morbi molestie sagittis massa, ac sollicitudin tortor porta id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In mollis velit lacinia, egestas dolor et, sollicitudin tortor. Maecenas ornare sagittis lacus, at tristique ipsum auctor eu. Sed et diam ultrices, dignissim ligula quis, auctor arcu. Fusce nec sapien vitae mauris semper tincidunt vel quis sapien. Nulla lobortis velit vitae elementum fringilla. Donec id mi ornare, vehicula lectus eu, pulvinar velit. In vitae sem metus. ' />
+						<a href='article.html'></a>
+					</div>
+					<div class='slideImage'>
+						<img src='placeholders/slider4.jpg' alt='In et lorem placerat, hendrerit nulla sed, sollicitudin arcu.' />
+						<a href='article.html'></a>
+					</div>
+				</div>
+				<div class='caption'></div>
+				<a class='readMore generalButton'>Keep Reading</a>
+			</div>
+		</div>
+		<div id='mainbody' class='inlineContainer'>
+			<div class='leftColumn borderBox news'>
+				<div class='sectionHeader'>
+					<h1>Worldwide News</h1>
+					<!--<span class='subtext ellipsis'>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</span>-->
+					<div class='menu'>
+						<ul class='submenu right'>
+							<li><a href='#'>News</a></li>
+							<li><a href='#'>Games</a></li>
+							<li><a href='#'>Video</a></li>
+							<li><a href='#'>Team</a></li>
+							<li><a href='#'>Gallery</a></li>
+						</ul>
+					</div>
+				</div>
+				<article class='inlineContainer'>
+					<div class='details'>
+						<div class='image'>
+							<strong class='tag'>Games</strong>
+							<img src='placeholders/1.jpg' alt='preview' />
+						</div>
+						<a class='author borderBox ellipsis' href='#'>Lorem ipsum</a>
+						<a class='comments borderBox ellipsis' href='#'>Lorem ipsum dolor sit amet</a>
+					</div>
+					<div class='post borderBox'>
+						<h3><a href='#'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis. Aliquam rhoncus ultrices velit, vitae eleifend magna vestibulum ac. In pellentesque quis massa at consequat. Vestibulum vel sodales erat. Ut at justo iaculis, commodo sapien accumsan, placerat nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. In eget sapien justo. Integer mollis tincidunt mauris, ut auctor lectus posuere eget. Nunc mattis mi nunc, eu vulputate tortor elementum vel. Aliquam eleifend elit et purus condimentum porta. Fusce et tellus viverra, mattis lectus sed, laoreet felis.</p>
+						<div class='bottom'><a class='generalButton' href='#'>Read More</a></div>
+					</div>
+				</article>
+				<article class='inlineContainer'>
+					<div class='details'>
+						<div class='image'>
+							<strong class='tag'>Games</strong>
+							<img src='placeholders/2.jpg' alt='preview' />
+						</div>
+						<a class='author borderBox ellipsis' href='#'>Lorem ipsum</a>
+						<a class='comments borderBox ellipsis' href='#'>Lorem ipsum dolor sit amet</a>
+					</div>
+					<div class='post borderBox'>
+						<h3><a href='#'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis. Aliquam rhoncus ultrices velit, vitae eleifend magna vestibulum ac. In pellentesque quis massa at consequat. Vestibulum vel sodales erat. Ut at justo iaculis, commodo sapien accumsan, placerat nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. In eget sapien justo. Integer mollis tincidunt mauris, ut auctor lectus posuere eget. Nunc mattis mi nunc, eu vulputate tortor elementum vel. Aliquam eleifend elit et purus condimentum porta. Fusce et tellus viverra, mattis lectus sed, laoreet felis.</p>
+						<div class='bottom'><a class='generalButton' href='#'>Read More</a></div>
+					</div>
+				</article>
+				<article class='inlineContainer'>
+					<div class='details'>
+						<div class='image'>
+							<strong class='tag purple'>Video</strong>
+							<img src='placeholders/3.jpg' alt='preview' />
+						</div>
+						<a class='author borderBox ellipsis' href='#'>Lorem ipsum</a>
+						<a class='comments borderBox ellipsis' href='#'>Lorem ipsum dolor sit amet</a>
+					</div>
+					<div class='post borderBox'>
+						<h3><a href='#'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
+						<p><a class='lightbox video' href='http://www.youtube.com/embed/aXdNQYvqdAs'><img src='placeholders/4.jpg' alt='video'></a></p>
+						<div class='bottom'><a class='generalButton' href='#'>Read More</a></div>
+					</div>
+				</article>
+				<article class='inlineContainer'>
+					<div class='details'>
+						<div class='image'>
+							<strong class='tag red'>Teams</strong>
+							<img src='placeholders/4.jpg' alt='preview' />
+						</div>
+						<a class='author borderBox ellipsis' href='#'>Lorem ipsum</a>
+						<a class='comments borderBox ellipsis' href='#'>Lorem ipsum dolor sit amet</a>
+					</div>
+					<div class='post borderBox'>
+						<h3><a href='#'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis. Aliquam rhoncus ultrices velit, vitae eleifend magna vestibulum ac. In pellentesque quis massa at consequat. Vestibulum vel sodales erat. Ut at justo iaculis, commodo sapien accumsan, placerat nulla. Interdum et malesuada fames ac ante ipsum primis in faucibus. In eget sapien justo. Integer mollis tincidunt mauris, ut auctor lectus posuere eget. Nunc mattis mi nunc, eu vulputate tortor elementum vel. Aliquam eleifend elit et purus condimentum porta. Fusce et tellus viverra, mattis lectus sed, laoreet felis.</p>
+						<div class='bottom'><a class='generalButton' href='#'>Read More</a></div>
+					</div>
+				</article>
+				<a class='showMore borderBox' href='#'>Show More Articles</a>
+			</div>
+			<aside id='sidebar' class='rightColumn'>
+				<section>
+					<h1 class='ellipsis mail'>Latest Comments</h1>
+					<div class='entry'>
+						<h3><a class='ellipsis' href='#'>Lorem ipsum dolor sit amet</a></h3>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.
+					</div>
+					<div class='entry'>
+						<h3><a class='ellipsis' href='#'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam</a></h3>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.
+					</div>
+					<div class='entry'>
+						<h3><a class='ellipsis' href='#'>Lorem ipsum dolor sit amet</a></h3>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.
+					</div>
+				</section>
+				<section>
+					<h1 class='ellipsis alt mail'>Admin Posts</h1>
+					<div class='entry'>
+						<h3><a class='ellipsis' href='#'>Lorem ipsum dolor sit amet</a></h3>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.
+					</div>
+				</section>
+				<section>
+					<h1 class='ellipsis picture'>Gallery Images</h1>
+					<div class='entry gallery inlineContainer'>
+						<a class='lightbox' href='placeholders/1.jpg'><img src='placeholders/1.jpg' alt='image' /></a>
+						<a class='lightbox' href='placeholders/2.jpg'><img src='placeholders/2.jpg' alt='image' /></a>
+						<a class='lightbox' href='placeholders/3.jpg'><img src='placeholders/3.jpg' alt='image' /></a>
+						<a class='lightbox' href='placeholders/4.jpg'><img src='placeholders/4.jpg' alt='image' /></a>
+					</div>
+				</section>
+			</aside>
+			<div id='secondaryFooter' class='inlineContainer'>
+				<div class='leftColumn borderBox'>
+					<h2>Gamecity Media</h2>
+					<div class='media'>
+						<a class='lightbox left' href='placeholders/8.jpg'><img src='placeholders/8.jpg' alt='video'></a>
+						<a class='lightbox right' href='placeholders/9.jpg'><img src='placeholders/9.jpg' alt='video'></a>
+						<a class='lightbox right' href='placeholders/10.jpg'><img src='placeholders/10.jpg' alt='video'></a>
+					</div>
+				</div>
+				<div class='rightColumn'>
+					<h2>Recent Twitter Feeds</h2>
+					<p>Lorem ipsum dolor sit amet, <a href='#'>consectetur</a> adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer id='footer' class='mainWidth borderBox inlineContainer'>
+		<div class='leftColumn'>
+			<div class='info'></div>
+			<div class='about borderBox'>
+				<h2>About us</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.</p>
+				<ul class='social'>
+					<li class='twitter'><a href='#'><img src='images/twitter.png' alt='Twitter'></a></li>
+					<li class='facebook'><a href='#'><img src='images/facebook.png' alt='Facebook'></a></li>
+					<li class='youtube'><a href='#'><img src='images/youtube.png' alt='Youtube'></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class='siteMap rightColumn'>
+			<h2>Site Map</h2>
+			<ul class='left'>
+				<li><a href='#'>Home</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+			</ul>
+			<ul class='right'>
+				<li><a href='#'>Home</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+			</ul>
+		</div>
+	</footer>
+	<script src='js/jquery-1.10.2.js'></script>
+	<script src='js/jquery.colorbox-min.js'></script>
+	<script src='jquery-ui/js/jquery-ui-1.10.4.custom.min.js'></script>
+	<script src='js/slider.js'></script>
+	<script src='js/menu.js'></script>
+	<script src='js/lightbox.js'></script>
+</body>
+</html>

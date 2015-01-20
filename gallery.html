@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GameCity</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="colorbox.css">
+	<link rel="stylesheet" href="jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.css">
+</head>
+<body>
+	<header id="header"></header>
+	<div id="content" class='mainWidth'>
+		<input id='navToggle' type='checkbox' />
+		<label for='navToggle'></label>
+		<nav id="mainNav">
+			<ul class='inlineContainer'>
+				<li><a href='index.html'>Home</a></li>
+				<li><a href='article.html'>Articles</a></li>
+				<li class='selected'><a href='gallery.html'>Gallery</a></li>
+				<li><a href='profile.html'>Profile</a></li>
+				<li>
+					<a>Menu</a>
+					<ul class='submenu'>
+						<li><a href='#'>Link #1</a></li>
+						<li><a href='#'>Link #2</a></li>
+						<li><a href='#'>Link #3</a></li>
+						<li><a href='#'>Link #4</a></li>
+						<li><a href='#'>Link #5</a></li>
+					</ul>
+				</li>
+				<li><a href='extra.html'>Extra</a></li>
+				<li id='userNavigation'>
+					<div class='avatarWrap'>
+						<img class='avatar' src='placeholders/35x35_avatar_index.jpg' alt='Avatar' />
+						<div class='messages'>3</div>
+					</div>
+					<span class='username'>Lorem ipsum</span>
+					<ul class='submenu right'>
+						<li><a href='#'>Messages <span class='messages'>(3)</span></a></li>
+						<li><a href='#'>Options</a></li>
+						<li><a href='#'>Administration</a></li>
+						<li><a href='#'>Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		<div id='mainbody' class='gallery'>
+			<div class='headerWrap'>
+				<h1>Gallery</h1>
+				<form class='search'>
+					<input class='borderBox' type='text' placeholder='Search...' />
+					<input type='submit' value='' title='Search' />
+				</form>
+			</div>
+			<div class='galleryImages inlineContainer'>
+				<a class='lightbox alt' href='placeholders/1.jpg'>
+					<img src='placeholders/1.jpg' alt='The Coords! Image #3' />
+					<div class='overlay'>
+						<div class='caption'>The Coords! Image #3</div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/2.jpg'>
+					<img src='placeholders/2.jpg' alt='Suspendisse sit amet sodales risus. ' />
+					<div class='overlay'>
+						<div class='caption'>Suspendisse sit amet sodales risus. </div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/3.jpg'>
+					<img src='placeholders/3.jpg' alt='Aliquam interdum vestibulum odio, vitae. ' />
+					<div class='overlay'>
+						<div class='caption'>Aliquam interdum vestibulum odio, vitae. </div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/4.jpg'>
+					<img src='placeholders/4.jpg' alt='Duis nec elit accumsan, bibendum. ' />
+					<div class='overlay'>
+						<div class='caption'>Duis nec elit accumsan, bibendum. </div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/5.jpg'>
+					<img src='placeholders/5.jpg' alt='Duis imperdiet orci tempus viverra. ' />
+					<div class='overlay'>
+						<div class='caption'>Duis imperdiet orci tempus viverra. </div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/6.jpg'>
+					<img src='placeholders/6.jpg' alt='Quisque ac libero ac odio. ' />
+					<div class='overlay'>
+						<div class='caption'>Quisque ac libero ac odio. </div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/7.jpg'>
+					<img src='placeholders/7.jpg' alt='Donec dictum viverra ipsum, a. ' />
+					<div class='overlay'>
+						<div class='caption'>Donec dictum viverra ipsum, a. </div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/8.jpg'>
+					<img src='placeholders/8.jpg' alt='Quisque malesuada nunc vel tortor hendrerit feugiat. Nullam luctus ac libero molestie interdum. Donec semper nulla ultricies arcu tincidunt, hendrerit mattis tellus blandit. Donec at. ' />
+					<div class='overlay'>
+						<div class='caption'>Quisque malesuada nunc vel tortor hendrerit feugiat. Nullam luctus ac libero molestie interdum. Donec semper nulla ultricies arcu tincidunt, hendrerit mattis tellus blandit. Donec at. </div>
+					</div>
+				</a>
+				<a class='lightbox alt' href='placeholders/9.jpg'>
+					<img src='placeholders/9.jpg' alt='Etiam feugiat condimentum sem, ut consectetur enim adipiscing et. Morbi sed molestie nunc. Ut a nulla et leo adipiscing venenatis eu a justo. Vivamus feugiat lectus varius turpis egestas, congue tempus erat sagittis. Ut diam est, scelerisque pretium nulla ac, convallis fermentum risus. Phasellus venenatis nec purus eget venenatis. Nam in consequat elit, at sollicitudin lorem. Suspendisse potenti. Nunc eget augue a nisi sagittis tempor. Mauris rhoncus neque vel lacus auctor ornare. ' />
+					<div class='overlay'>
+						<div class='caption'>Etiam feugiat condimentum sem, ut consectetur enim adipiscing et. Morbi sed molestie nunc. Ut a nulla et leo adipiscing venenatis eu a justo. Vivamus feugiat lectus varius turpis egestas, congue tempus erat sagittis. Ut diam est, scelerisque pretium nulla ac, convallis fermentum risus. Phasellus venenatis nec purus eget venenatis. Nam in consequat elit, at sollicitudin lorem. Suspendisse potenti. Nunc eget augue a nisi sagittis tempor. Mauris rhoncus neque vel lacus auctor ornare.  </div>
+					</div>
+				</a>
+			</div>
+			<div class='pagination'>
+				<a class='prev disabled' href='#'>&lt;</a>
+				<a class='page current' href='#'>1</a>
+				<a class='page' href='#'>2</a>
+				<a class='page' href='#'>3</a>
+				<a class='page' href='#'>4</a>
+				<a class='next' href='#'>&gt;</a>
+				<span>Showing 1-4 of 128 Pages</span>
+			</div>
+			<div id='secondaryFooter' class='inlineContainer'>
+				<div class='leftColumn borderBox'>
+					<h2>Gamecity Media</h2>
+					<div class='media'>
+						<a class='lightbox left' href='placeholders/8.jpg'><img src='placeholders/8.jpg' alt='video'></a>
+						<a class='lightbox right' href='placeholders/9.jpg'><img src='placeholders/9.jpg' alt='video'></a>
+						<a class='lightbox right' href='placeholders/10.jpg'><img src='placeholders/10.jpg' alt='video'></a>
+					</div>
+				</div>
+				<div class='rightColumn'>
+					<h2>Recent Twitter Feeds</h2>
+					<p>Lorem ipsum dolor sit amet, <a href='#'>consectetur</a> adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer id='footer' class='mainWidth borderBox inlineContainer'>
+		<div class='leftColumn'>
+			<div class='info'></div>
+			<div class='about borderBox'>
+				<h2>About us</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin venenatis aliquam diam, nec volutpat dolor consequat et. Sed posuere nulla in diam pretium, in porttitor sapien facilisis.</p>
+				<ul class='social'>
+					<li class='twitter'><a href='#'><img src='images/twitter.png' alt='Twitter'></a></li>
+					<li class='facebook'><a href='#'><img src='images/facebook.png' alt='Facebook'></a></li>
+					<li class='youtube'><a href='#'><img src='images/youtube.png' alt='Youtube'></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class='siteMap rightColumn'>
+			<h2>Site Map</h2>
+			<ul class='left'>
+				<li><a href='#'>Home</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+			</ul>
+			<ul class='right'>
+				<li><a href='#'>Home</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+				<li><a href='#'>Lorem</a></li>
+			</ul>
+		</div>
+	</footer>
+	<script src='js/jquery-1.10.2.js'></script>
+	<script src='js/jquery.colorbox-min.js'></script>
+	<script src='jquery-ui/js/jquery-ui-1.10.4.custom.min.js'></script>
+	<script src='js/menu.js'></script>
+	<script src='js/lightbox.js'></script>
+</body>
+</html>
