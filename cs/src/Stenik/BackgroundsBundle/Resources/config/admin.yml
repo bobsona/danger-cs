@@ -1,0 +1,8 @@
+services:
+    stenik.admin.backgrounds:
+        class: Stenik\BackgroundsBundle\Admin\BackgroundsAdmin
+        arguments: [~, Stenik\BackgroundsBundle\Entity\Background, StenikCoreBundle:SortableCRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "stenik_site", label: "stenik_background"}
+        calls:
+            - [ setTranslationDomain, [StenikBackgroundsBundle]]

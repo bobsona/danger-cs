@@ -1,0 +1,78 @@
+Management: Достъп
+General: Главни
+back: Назад
+forbidden_error: Нямате право да извършвате това действие
+gender_female: Жена
+gender_male: Мъж
+
+form:
+    label_city: Град
+    label_address: Адрес
+    label_cinema: Предпочитано Кино
+    label_favourite_movies: Любими филми
+    label_favourite_actors: Любими актьори
+    label_categories: Любими жанрове
+    label_interests: Интереси
+    label_movies: Филми
+
+tab:
+    general: Персонална информация
+    password_change: Промяна на парола
+    more: Повече
+    management: Управление на роли
+    interest: Интереси
+    my_movies: Моите филми
+
+ROLE_STENIK_NEWS_ADMIN_NEWS_EDIT: Новини - редакция
+ROLE_STENIK_NEWS_ADMIN_NEWS_LIST: Новини - списък
+ROLE_STENIK_NEWS_ADMIN_NEWS_CREATE: Новини - създаване
+ROLE_STENIK_NEWS_ADMIN_NEWS_DELETE: Новини - изтриване
+ROLE_STENIK_NEWS_ADMIN_NEWS_EXPORT: Новини - експорт
+ROLE_STENIK_NEWS_ADMIN_NEWS_MASTER: Новини - Всичко
+ROLE_STENIK_CONTENT_ADMIN_CONTENT_EDIT: Текстови страници - редакция
+ROLE_STENIK_CONTENT_ADMIN_CONTENT_LIST: Текстови страници - списък
+ROLE_STENIK_CONTENT_ADMIN_CONTENT_CREATE: Текстови страници - създаване
+ROLE_STENIK_CONTENT_ADMIN_CONTENT_DELETE: Текстови страници - изтриване
+ROLE_STENIK_CONTENT_ADMIN_CONTENT_EXPORT: Текстови страници - експорт
+ROLE_STENIK_CONTENT_ADMIN_CONTENT_MASTER: Текстови страници - Всичко
+
+
+ROLE_SONATA_MEDIA_ADMIN_MEDIA_EDIT: 'Медиа - редакция'
+ROLE_SONATA_MEDIA_ADMIN_MEDIA_LIST: 'Медиа - списък'
+ROLE_SONATA_MEDIA_ADMIN_MEDIA_CREATE: 'Медиа - създаване'
+ROLE_SONATA_MEDIA_ADMIN_MEDIA_DELETE: 'Медиа - изтриване'
+ROLE_SONATA_MEDIA_ADMIN_MEDIA_EXPORT: 'Медиа - експорт'
+ROLE_SONATA_MEDIA_ADMIN_MEDIA_MASTER: 'Медиа - Всичко'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_EDIT: 'Галерии - редакция'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_LIST: 'Галерии - списък'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_CREATE: 'Галерии - създаване'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_DELETE: 'Галерии - изтриване'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_EXPORT: 'Галерии - експорт'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_MASTER: 'Галерии - Всичко'
+
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_HAS_MEDIA_EDIT: 'Медиа към галерия - редакция'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_HAS_MEDIA_LIST: 'Медиа към галерия - списък'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_HAS_MEDIA_CREATE: 'Медиа към галерия - създаване'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_HAS_MEDIA_DELETE: 'Медиа към галерия - изтриване'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_HAS_MEDIA_EXPORT: 'Медиа към галерия - експорт'
+ROLE_SONATA_MEDIA_ADMIN_GALLERY_HAS_MEDIA_MASTER: 'Медиа към галерия - Всичко'
+
+ROLE_SONATA_USER_ADMIN_USER_EDIT: 'Потребители - редакция'
+ROLE_SONATA_USER_ADMIN_USER_LIST: 'Потребители - списък'
+ROLE_SONATA_USER_ADMIN_USER_CREATE: 'Потребители - създаване'
+ROLE_SONATA_USER_ADMIN_USER_DELETE: 'Потребители - изтриване'
+ROLE_SONATA_USER_ADMIN_USER_EXPORT: 'Потребители - експорт'
+ROLE_SONATA_USER_ADMIN_USER_MASTER: 'Потребители - Всичко'
+
+ROLE_SONATA_USER_ADMIN_GROUP_EDIT: 'Групи потребители - редакция'
+ROLE_SONATA_USER_ADMIN_GROUP_LIST: 'Групи потребители - списък'
+ROLE_SONATA_USER_ADMIN_GROUP_CREATE: 'Групи потребители - създаване'
+ROLE_SONATA_USER_ADMIN_GROUP_DELETE: 'Групи потребители - изтриване'
+ROLE_SONATA_USER_ADMIN_GROUP_EXPORT: 'Групи потребители - експорт'
+ROLE_SONATA_USER_ADMIN_GROUP_MASTER: 'Групи потребители - Всичко'
+
+ROLE_SONATA_ADMIN: 'Соната админ (част от Администратор)'
+ROLE_ALLOWED_TO_SWITCH: 'Позволено превключване (част от Администратор)'
+'ROLE_SUPER_ADMIN: ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH': 'Супер Администратор'
+'ROLE_ADMIN: ROLE_USER, ROLE_SONATA_ADMIN': 'Администратор'
+ROLE_USER: 'Потребител'

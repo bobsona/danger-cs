@@ -1,0 +1,23 @@
+{% if seoItem is not null %}
+    {% block meta_title %}
+        {% if seoItem.metaTitle is null and seoItem.title is null %}
+            <title>{{'Burgering House'}}</title>
+        {% else %}
+            <title>{{seoItem.metaTitle ? seoItem.metaTitle ~ ' | Burgering House' : seoItem.title ~ ' | Burgering House'}}</title>
+        {% endif %}
+    {% endblock %}
+    {% block meta_keywords %}
+        {% if seoItem.metaKeywords is null %}
+            <meta name="keywords" content="{{'Ключови думи'}}" />
+        {% else %}
+            <meta name="keywords" content="{{seoItem.metaKeywords}}" />
+        {% endif %}
+    {% endblock %}
+    {% block meta_description %}
+        {% if seoItem.metaDescription is null %}
+            <meta name="description" content="{{'Описание'}}" />
+        {% else %}
+            <meta name="description" content="{{seoItem.metaDescription}}" />        
+        {% endif %}
+    {% endblock %}
+{% endif %}

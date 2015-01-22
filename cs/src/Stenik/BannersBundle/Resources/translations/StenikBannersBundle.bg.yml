@@ -1,0 +1,31 @@
+stenik_banners: "Банери"
+Zone: 'Зона'
+General: 'Основни'
+form:
+    movies: 'Кина'
+    title: "Заглавие"
+    alt: "Алтернативен текст"
+    file: "Файл"
+    is_hidden: "Скрит"
+    translations: "Преводи"
+    image: "Изображение"
+    created_at: "Дата на създаване"
+    actions: "Действия"
+    id: "Уникален номер"
+    target: 'Отвори:'
+    rank: 'Ранк'
+    url: 'URL адрес'
+Binary content: "Файл"
+Unlink: "Изтрий"
+
+td_revision: 'Ревизия'
+td_timestamp: 'Дата'
+td_username: 'Администратор'
+td_action: 'Действия'
+label_view_revision: 'Виж ревизията'
+action_edit: 'Виж'
+action_history: 'Версии'
+
+label_revert_to_revision: 'Върни се до тази ревизия'
+
+not_found_revisions: 'Няма намерени ревизии'

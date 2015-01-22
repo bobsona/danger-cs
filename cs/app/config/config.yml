@@ -1,0 +1,276 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: doctrine_extensions.yml }
+    - { resource: "@StenikBackgroundsBundle/Resources/config/admin.yml" }
+    - { resource: "@StenikSettingsBundle/Resources/config/admin.yml" }
+    - { resource: "@StenikSettingsBundle/Resources/config/services.yml" }
+    - { resource: "@StenikSliderBundle/Resources/config/admin.yml" }
+    - { resource: "@StenikContentBundle/Resources/config/admin.yml" }
+    - { resource: "@StenikTranslationsBundle/Resources/config/admin.yml" }
+    - { resource: "@StenikBannersBundle/Resources/config/admin.yml" }
+    #- { resource: "@ApplicationSonataUserBundle/Resources/config/services.yml" }
+
+parameters:
+    locales: %a2lix_translation_form.locales%
+    # stenik.content.admin.content.class: Application\Stenik\ContentBundle\Admin\ContentAdmin
+    # stenik.news.admin.news.class: Application\Stenik\NewsBundle\Admin\NewsAdmin
+    # stenik.slider.admin.slider.class: Application\Stenik\SliderBundle\Admin\SliderAdmin
+
+
+framework:
+    #esi:             ~
+    translator: { fallback: %locale% }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            # other files
+            - 'StenikCoreBundle:Form:media_widgets.html.twig'
+            - 'StenikCoreBundle:Form:tree_field.html.twig'
+
+
+# Assetic Configuration
+assetic:
+    # read_from:            "%kernel.root_dir%/../../weber/web"
+    # write_to:             "%kernel.root_dir%/../../weber/web"
+    debug:          "%kernel.debug%"
+    use_controller: false
+    node: /usr/bin/nodejs
+    bundles:        []
+    #java: /usr/bin/java
+    filters:
+        uglifyjs2:
+            bin: %kernel.root_dir%/Resources/node_modules/.bin/uglifyjs
+        uglifycss:
+            bin: %kernel.root_dir%/Resources/node_modules/.bin/uglifycss
+        cssrewrite: ~
+        #closure:
+        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+        #yui_css:
+        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+
+fos_user:
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     \Application\Sonata\UserBundle\Entity\User
+
+
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+
+    service:
+        user_manager: sonata.user.orm.user_manager                       # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        # path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        entity_managers:
+            default:
+                auto_mapping: true
+                # New custom filter
+        #auto_mapping: true
+                mappings:
+                    translatable:
+                        type: annotation
+                        alias: Gedmo
+                        prefix: Gedmo\Translatable\Entity
+                        # make sure vendor library location is correct
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                    loggable:
+                        type: annotation
+                        alias: Gedmo
+                        prefix: Gedmo\Loggable\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                    tree:
+                        type: annotation
+                        alias: Gedmo
+                        prefix: Gedmo\Tree\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+
+a2lix_translation_form:
+    locales: [bg, en]       # [1]
+    required_locales: [bg]      # [2]
+    manager_registry: doctrine      # [3]
+    templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]
+
+sonata_media:
+    # if you don't use default namespace configuration
+    # class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
+    default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                # - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                #- sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 225, height: 169, quality: 70}
+        stenik_content:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                index:  { width: 715, height: 409, quality: 90 }
+                gallery:  { width: 162, height: 121, quality: 90 }
+        stenik_entertainment:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                index:  { width: 715, height: 409, quality: 90 }
+        stenik_backgrounds:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                index:  { width: 715, height: 409, quality: 90 }
+        stenik_news:
+            providers:
+                - sonata.media.provider.image
+                - sonata.media.provider.youtube
+            formats:
+                index:  { width: 715, height: 409, quality: 90 }
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     true
+    providers:
+        image:
+            resizer: sonata.media.resizer.simple
+        file:
+            service:    sonata.media.provider.file
+            resizer:    false
+            filesystem: sonata.media.filesystem.local
+            cdn:        sonata.media.cdn.server
+            generator:  sonata.media.generator.default
+            thumbnail:  sonata.media.thumbnail.format
+            allowed_extensions: ['pdf', 'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pttx', 'odt', 'odg', 'odp', 'ods', 'odc', 'odf', 'odb', 'csv', 'xml']
+            allowed_mime_types: ['application/pdf', 'application/x-pdf', 'application/rtf', 'text/html', 'text/rtf', 'text/plain', 'application/msword']
+
+sonata_user:
+    manager_type: orm # can be orm or mongodb
+    admin:
+        user:
+          class:      Application\Sonata\UserBundle\Admin\Entity\UserAdmin
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+
+        #sonata.admin_doctrine_orm.block.audit:
+        #    contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.rss:
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        # Your other blocks
+
+        # Some specific block from the SonataMediaBundle
+        #sonata.media.block.media:
+        #sonata.media.block.gallery:
+        #sonata.media.block.feature_media:
+sonata_admin:
+    title_logo: images/backend/logo.png
+    options:
+        html5_validate:                         false      # use html5 validation
+        confirm_exit:                           true      # enabled confirmation when quitting with unsaved changes
+        use_select2:                            true      # enable select2
+        use_icheck:                             true      # enable iCheck
+        dropdown_number_groups_per_colums:      2         # max items per column in dropdown menu (add button in top nav)
+        title_mode:           'single_image'              # 'both', 'single_text' or 'single_image'
+    templates:
+        # default global templates
+        layout:  ::baseadmin.html.twig
+    security:
+        handler: sonata.admin.security.handler.role
+        information:
+            EDIT: EDIT
+            LIST: LIST
+            CREATE: CREATE
+            DELETE: DELETE
+            EXPORT: EXPORT
+            MASTER: MASTER
+
+knp_menu:
+    twig:  # use "twig: false" to disable the Twig extension and the TwigRenderer
+        template: StenikFrontendBundle:Menu:main_menu.html.twig
+    templating: false # if true, enables the helper for PHP templates
+    default_renderer: twig # The renderer to use, list is also available by default
+sensio_framework_extra:
+    request:
+        converters: true
+        auto_convert: true
+gregwar_captcha: ~
+
+stenik_translations:
+    fallback_locale: en      # (required) default locale to use
+    managed_locales: [en, bg]    # (required) locales that the bundle have to manage

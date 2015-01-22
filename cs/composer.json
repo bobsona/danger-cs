@@ -1,0 +1,128 @@
+{
+    "name": "symfony/framework-standard-edition",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
+    "autoload": {
+        "psr-0": { "": "src/", "SymfonyStandard": "app/", "Gregwar": "/vendor/bundles"}
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.6.3",
+        "doctrine/orm" : "=v2.4.2",
+        "doctrine/doctrine-bundle": "~1.2",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~3.0",
+        "sensio/framework-extra-bundle": "dev-master",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "gedmo/doctrine-extensions": "dev-wip-v2.4.0",
+
+        "a2lix/translation-form-bundle": "dev-master",
+        
+        "knplabs/knp-menu": "dev-master",
+        "knplabs/knp-menu-bundle": "dev-master",
+
+        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+
+        "sonata-project/core-bundle": "2.3.*@dev",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/block-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/datagrid-bundle" : "dev-master",
+        "sonata-project/user-bundle" : "dev-master",
+        "sonata-project/easy-extends-bundle": "dev-master",
+        "sonata-project/media-bundle": "2.3.*@dev",
+        "sonata-project/intl-bundle": "dev-master",
+
+        "stenik/core-bundle": "dev-master",
+        "stenik/content-bundle": "dev-master",
+        "stenik/translations-bundle": "dev-master",
+        "stenik/settings-bundle": "dev-master",
+        "stenik/news-bundle": "dev-master",
+        "stenik/tinymce-bundle": "dev-master",
+        "stenik/slider-bundle": "dev-master",
+
+        "nelmio/api-doc-bundle": "dev-master",
+        "jms/serializer-bundle": "dev-master",
+        "jms/di-extra-bundle": "dev-master",
+
+        "gregwar/captcha-bundle": "dev-master",
+
+        "leaseweb/api-caller-bundle": "dev-master",
+        "phpdocumentor/phpdocumentor": "2.*",
+        "widop/phpbb-bundle": "dev-master"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~2.3" 
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall" 
+        ],
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles" 
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles" 
+        ]
+    },
+    "config": {
+        "bin-dir": "bin" 
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml" 
+        },
+        "branch-alias": {
+            "dev-master": "2.5-dev"
+        }
+    },
+    "repositories":[
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-core-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-content-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-news-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-settings-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-translations-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-tinymce-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-slider-bundle"
+        }
+    ]
+}
+

@@ -1,0 +1,6 @@
+# Stenik\BackgroundsBundle\Entity\Background:
+#   properties:
+#       image:
+#           - Image:
+#               minWidth: 1980
+#               minWidthMessage: 'kur'

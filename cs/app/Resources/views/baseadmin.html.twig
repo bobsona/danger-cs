@@ -1,0 +1,8 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+		{{ tinymce_init() }}
+{% endblock %}
+{% block side_bar_after_nav %}
+    <p class="text-center small" style="padding-top: 10px"><a href="http://www.stenikgroup.com/bg/contacts/request" rel="noreferrer" style="color: #FA6F76" target="_blank">{{'send_request'|trans({}, 'SonataAdminBundle')}}</a></p>
+{% endblock %}

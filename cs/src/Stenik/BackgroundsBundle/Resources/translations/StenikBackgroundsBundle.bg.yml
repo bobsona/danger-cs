@@ -1,0 +1,22 @@
+stenik_background: 'Бекграунди'
+menu.item: 'Основни'
+form:
+  general: 'Основни'
+  image: 'Снимка'
+  isHidden: 'Скрит'
+table.label_actions: 'Действия'
+
+list:
+  title: 'Изображение'
+  created_at: 'Дата на създаване'
+  isHidden: 'Скрит'
+
+actions: 'Действия'
+action_history: 'Версии'
+td_revision: 'Ревизия'
+td_timestamp: 'Дата'
+td_username: 'Администратор'
+td_action: 'Действия'
+label_view_revision: 'Виж ревизията'
+label_revert_to_revision: 'Върни се до ревизията'
+action_edit: 'Виж'

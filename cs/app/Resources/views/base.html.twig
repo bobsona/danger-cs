@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="/images/frontend/favicon.png" rel="shortcut icon">
+        {% block meta %}
+            {% block meta_title %}
+                <title>Burgering House</title>
+            {% endblock %}
+
+            {% block meta_keywords %}
+                <meta name="keywords" content="test">
+            {% endblock %}
+            {% block meta_description %}
+                <meta name="description" content="test">
+            {% endblock %}
+        {% endblock %}
+        
+        {% block stylesheets %}
+            {% stylesheets 'css/frontend/*' filter='?uglifycss' filter='cssrewrite' %}
+                <link rel="stylesheet"  type="text/css" href="{{ asset_url }}">
+            {% endstylesheets %}
+        {% endblock %}
+        <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/ie-assets/ie7.css"/><![endif]-->
+        <!--[if IE 8]><link rel="stylesheet" type="text/css" media="screen" href="/ie-assets/ie8.css"/><![endif]-->
+        <!--[if IE 9]><link rel="stylesheet" type="text/css" media="screen" href="/ie-assets/ie9.css"/><![endif]-->
+
+        {% block javascripts %}
+            {% javascripts 'js/frontend/*' filter='?uglifyjs2' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-547d8467558df7c1" async="async"></script>
+        {% endblock %}
+    </head>
+    <body class="frontend animating">
+        <noscript>
+            <style>
+                noscript { display: block; }
+                html, body {
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                }
+            </style>
+            <div class="noscript">
+                <h4 class="upperCase">JavaScript seems to be disabled in your browser.</h4>
+                You must have JavaScript enabled in your browser to utilize the functionality of this website.</p>
+                <br>
+                <a href="http://www.enable-javascript.com/" title="Javascript enable" target="_blank" class="button">How to enable JavaScript?</a>
+            </div>
+        </noscript>
+        <!--[if lte IE 8]><span id="ie_check" class="ieCheck"></span><![endif]-->
+        {% block landingSlider %}{% endblock %}
+        <div id="globalContainer">
+            {{ render(controller('StenikFrontendBundle:Frontend:header', { '_locale': app.request.locale, 'route': app.request.attributes.get('_route'), 'route_params' :app.request.attributes.get('_route_params') })) }}
+            {% block body %}{% endblock %}
+            {% if breadCrumbs is defined and breadCrumbs is not null and breadCrumbs|length %}
+                {{ render(controller('StenikFrontendBundle:Frontend:footer', {'breadCrumbs': breadCrumbs, '_locale': app.request.locale, 'route': app.request.attributes.get('_route')})) }}
+            {% else %}
+                {{ render(controller('StenikFrontendBundle:Frontend:footer', { '_locale': app.request.locale, 'route': app.request.attributes.get('_route')})) }}
+            {% endif %}
+            {#{{ render(controller('StenikFooterLinksBundle:FooterLinkFrontend:index')) }}#}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+services:
+    stenik.admin.banners:
+        class: Stenik\BannersBundle\Admin\BannersAdmin
+        arguments: [~, Stenik\BannersBundle\Entity\Banner, StenikCoreBundle:SortableCRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "stenik_site", label: "stenik_banners"}
+        calls:
+            - [ setTranslationDomain, [StenikBannersBundle]]

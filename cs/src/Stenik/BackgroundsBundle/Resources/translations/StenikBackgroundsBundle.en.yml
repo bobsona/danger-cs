@@ -1,0 +1,28 @@
+stenik_accents: Accents
+menu.item: Main
+form:
+  general: General
+  more: More
+  type: Type
+  label_image: Image
+  title: Title
+  is_hidden: Hidden
+  translations: Translations
+  created_at: Created at
+  actions: Actions
+  id: Identifier
+  target: Target
+  rank: Rank
+  url: URL
+  description: Description
+table.label_actions: Actions
+
+td_revision: Revision
+td_timestamp: Date
+td_username: Administrator
+td_action: Actions
+label_view_revision: View revision
+action_edit: View
+action_history: Versions
+label_revert_to_revision: Revert to revision
+not_found_revisions: Revisions not found

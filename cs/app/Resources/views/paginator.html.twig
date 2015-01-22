@@ -1,0 +1,56 @@
+{% macro pager(item ,paginator, filter) %}
+    {% set currentPage = app.request.get('page') %}
+    
+    {% set maxPage = (paginator.count / paginator.query.maxResults)|round(0, 'ceil')  %}
+    {% set startFrom = 1 %}
+    {% set end = currentPage + 2 %}
+
+    {% if maxPage > 5 %}
+        {# case of current page bigger than 3 #}
+        {% if currentPage - 2 > 1  %}
+            {% set startFrom = currentPage - 2 %}
+        {% endif %}
+
+        {# In the begining #}
+        {% if currentPage < 3 %}
+            {% set end = 5 %}
+        {% endif %}
+
+        {# Going near the end #}
+        {% if currentPage + 3 > maxPage %}
+            {% set startFrom = maxPage - 4 %}
+            {% set end = maxPage %}
+        {% endif %}
+    {% else %}
+        {% set end = maxPage %}
+    {% endif %}
+
+    {% if end > 1 %}
+    <nav class="paging">
+        <ul>
+            <li class="prev {% if currentPage == 1 %}inactive{% endif %}">
+                <a href="{{path(item, {'page' : currentPage - 1, 'category': filter}) }}"><i class="arrowLeft"></i></a>
+            </li>
+            
+            {% if end > 5 %}
+                <li class="box"><a href="{{path(item, {'page' : 1, 'category': filter})}}">1</a></li>
+                <li><a href="#">...</a></li>
+            {% endif %}
+            
+            {% for i in startFrom..end %}
+                <li class="box {% if i == currentPage %}selected{% endif %}"><a href="{{path(item, {'page' : i, 'category': filter})}}">{{i}}</a></li>
+            {% endfor %}
+            
+            {% if currentPage + 2 < maxPage and maxPage > 5 %}
+                <li><a href="#">...</a></li>
+                <li class="box"><a href="{{path(item, {'page' : maxPage, 'category': filter})}}">{{maxPage}}</a></li>
+            {% endif %}
+            <li class="next" style="{% if currentPage == maxPage %}display:none{% else %}{% endif %}">
+                <a href="{{path(item, {'page' : currentPage + 1, 'category': filter})}}">
+                    <i class="arrowRight"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    {% endif %}
+{% endmacro %}

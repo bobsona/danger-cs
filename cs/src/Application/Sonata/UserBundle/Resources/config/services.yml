@@ -1,0 +1,6 @@
+services:
+  stenik.registration.form.type:
+    class: Application\Sonata\UserBundle\Form\Type\RegistrationType
+    tags:
+      - { name: form.type, alias: stenik_user_registration }
+    arguments:    [@translator]
