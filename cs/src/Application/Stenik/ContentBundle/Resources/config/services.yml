@@ -1,0 +1,5 @@
+services:
+    application_stenik.form.type.contacts:
+        class: Application\Stenik\ContentBundle\Form\Type\ContactsType
+        tags:
+            - { name: form.type, alias: contacts }

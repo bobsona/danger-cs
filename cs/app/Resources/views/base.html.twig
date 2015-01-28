@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/images/frontend/favicon.png" rel="shortcut icon">
         {% block meta %}
             {% block meta_title %}
@@ -24,15 +25,8 @@
         <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/ie-assets/ie7.css"/><![endif]-->
         <!--[if IE 8]><link rel="stylesheet" type="text/css" media="screen" href="/ie-assets/ie8.css"/><![endif]-->
         <!--[if IE 9]><link rel="stylesheet" type="text/css" media="screen" href="/ie-assets/ie9.css"/><![endif]-->
-
-        {% block javascripts %}
-            {% javascripts 'js/frontend/*' filter='?uglifyjs2' %}
-                <script type="text/javascript" src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-547d8467558df7c1" async="async"></script>
-        {% endblock %}
     </head>
-    <body class="frontend animating">
+    <body>
         <noscript>
             <style>
                 noscript { display: block; }
@@ -48,17 +42,50 @@
                 <a href="http://www.enable-javascript.com/" title="Javascript enable" target="_blank" class="button">How to enable JavaScript?</a>
             </div>
         </noscript>
-        <!--[if lte IE 8]><span id="ie_check" class="ieCheck"></span><![endif]-->
-        {% block landingSlider %}{% endblock %}
-        <div id="globalContainer">
-            {{ render(controller('StenikFrontendBundle:Frontend:header', { '_locale': app.request.locale, 'route': app.request.attributes.get('_route'), 'route_params' :app.request.attributes.get('_route_params') })) }}
+        <header id="header"></header>
+        <div id="content" class='mainWidth'>
+            <input id='navToggle' type='checkbox' />
+            <label for='navToggle'></label>
+            <nav id="mainNav">
+                <ul class='inlineContainer'>
+                    <li class='selected'><a href='index.html'>Home</a></li>
+                    <li><a href='article.html'>Articles</a></li>
+                    <li><a href='gallery.html'>Gallery</a></li>
+                    <li><a href='profile.html'>Profile</a></li>
+                    <li>
+                        <a>Menu</a>
+                        <ul class='submenu'>
+                            <li><a href='#'>Link #1</a></li>
+                            <li><a href='#'>Link #2</a></li>
+                            <li><a href='#'>Link #3</a></li>
+                            <li><a href='#'>Link #4</a></li>
+                            <li><a href='#'>Link #5</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='extra.html'>Extra</a></li>
+                    <li id='userNavigation'>
+                        <div class='avatarWrap'>
+                            <img class='avatar' src='/placeholders/35x35_avatar_index.jpg' alt='Avatar' />
+                            <div class='messages'>3</div>
+                        </div>
+                        <span class='username'>Lorem ipsum</span>
+                        <ul class='submenu right'>
+                            <li><a href='#'>Messages <span class='messages'>(3)</span></a></li>
+                            <li><a href='#'>Options</a></li>
+                            <li><a href='#'>Administration</a></li>
+                            <li><a href='#'>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            {{ render(controller('ApplicationStenikSliderBundle:SliderFrontend:view', { '_locale': app.request.locale, 'route': app.request.attributes.get('_route'), 'route_params' :app.request.attributes.get('_route_params') })) }}
             {% block body %}{% endblock %}
-            {% if breadCrumbs is defined and breadCrumbs is not null and breadCrumbs|length %}
-                {{ render(controller('StenikFrontendBundle:Frontend:footer', {'breadCrumbs': breadCrumbs, '_locale': app.request.locale, 'route': app.request.attributes.get('_route')})) }}
-            {% else %}
-                {{ render(controller('StenikFrontendBundle:Frontend:footer', { '_locale': app.request.locale, 'route': app.request.attributes.get('_route')})) }}
-            {% endif %}
-            {#{{ render(controller('StenikFooterLinksBundle:FooterLinkFrontend:index')) }}#}
         </div>
+        {{ render(controller('StenikFrontendBundle:Frontend:footer', { '_locale': app.request.locale, 'route': app.request.attributes.get('_route')})) }}
+        {% block javascripts %}
+            {% javascripts 'js/frontend/*' filter='?uglifyjs2' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </body>
 </html>

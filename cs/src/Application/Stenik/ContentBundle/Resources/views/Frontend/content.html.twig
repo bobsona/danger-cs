@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block meta %}
+    {% include '::seo.html.twig' with {seoItem: content} %}
+{% endblock %}
+
+{% import "::paginator.html.twig" as pager %}
+
+{% block body %}
+<section id="main" >
+    <div class="wrapper">
+        <aside class="sidebar left">
+            {% if leftSidebar is not null %}
+                <div class="widget blackBox links">
+                    {% if root is defined and root is not null %}
+                        <h3 class="title">{{root.title}}</h3>
+                    {% endif %}
+                    {{leftSidebar|raw}}
+                </div>
+            {% endif %}
+            {% if banner is defined and banner is not null %}
+            <div class="widget banner">
+                <a href="{{banner.url}}" title="{{banner.title}}">
+                   {% thumbnail banner.image, 'index' %}
+                </a>
+            </div>
+            {% endif %}
+        </aside>
+        <section class="mainContent whiteBox">
+            {% if content.translations[app.request.locale].image is defined and content.translations[app.request.locale].image is not null %}
+                <figure class="featured">
+                    {% thumbnail content.translations[app.request.locale].image, 'index' %}
+                </figure>
+            {% endif %}
+            <header class="header">
+                <div class="shareTools">
+                    <div class="addthis_native_toolbox"></div>
+                </div>
+                <h1 class="title">{{content.title}}</h1>
+            </header>
+            {% if content.description is defined and content.description|length %}
+                <article class="content">
+                    {{content.description|raw}}
+                </article>
+            {% endif %}
+            {% if gallery is defined and gallery is not null %}
+                <hr class="noMarginT">
+                <section class="listing gallery">
+                {% for item in gallery.galleryHasMedias %}
+                    {% if item.enabled %}
+                    <a rel="content-gallery" href="{% path item.media, 'reference' %}" class="item featured {% if loop.index%4 == 0 %}noMarginR{% endif %}">
+                        {% thumbnail item.media, 'gallery' with { 'width': 162, 'height': 100 } %}
+                        <div class="hoverOverlay"><i class="circlePlus"></i></div>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+                </section>
+            {% endif %}
+        </section><!-- end of .mainContent -->
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,4 @@
+services:
+    sonata.media.resizer.custom:
+        class: Stenik\FrontendBundle\Resizer\CustomResizer
+        arguments: [@sonata.media.adapter.image.gd, 'outbound', @sonata.media.metadata.proxy]

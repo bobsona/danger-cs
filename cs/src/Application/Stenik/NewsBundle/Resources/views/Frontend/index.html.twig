@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+{% import "::paginator.html.twig" as pager %}
+{% block meta %}
+    {% include '::seo.html.twig' with {seoItem: content} %}
+{% endblock %}
+{% block body %}
+<section id="main" >
+	<header class="pageDesc">
+		<div class="wrapper small">
+			<h1 class="title">{{content.title}}</h1>
+			<article class="content"></article>
+		</div>
+	</header>
+
+	<div class="wrapper">
+		<section class="mainContent whiteBox">
+			{% if paginator is defined and paginator is not null and paginator|length %}
+				<section class="listing posts">
+					{% for item in paginator %}
+						<article class="post">
+							<div class="dateBox">
+								<span class="day">{{item.publishedDate|date('d')}}</span>
+								<span class="month">{{item.publishedDate|date('M')}}</span>
+								<span class="year">{{item.publishedDate|date('Y')}}</span>
+							</div>
+							{% if item.image is defined and item.image is not null %}
+								<a href="{{ path(item.route, item.routeParams)}}" title="" class="featured">
+									{% thumbnail item.image, 'listing' %}
+									<div class="hoverOverlay"><i class="circlePlus"></i></div>
+								</a>
+							{% endif %}
+							<div class="contentWrapper">
+								<h4 class="title"><a href="{{ path(item.route, item.routeParams)}}" title="">{{item.title}}</a></h4>
+								{% if item.simpleDescription is defined and item.simpleDescription is not null and item.simpleDescription|length %}
+									<article class="content">
+										<p>{{item.simpleDescription}}</p>
+									</article>
+								{% endif %}
+								<footer class="meta">
+									<div class="attr">
+										<span class="item"><i class="list"></i>{{ 'category'|trans({}, "StenikNewsBundle")}} <a href="{{ path("news", {'category': item.category})}}" title="" class="filter">{{categoriesMapping[item.category]}}</a></span>
+									</div>
+									<a href="{{ path(item.route, item.routeParams)}}" title="" class="button small">{{ 'see_more'|trans({}, "StenikEventsBundle")}}</a>
+								</footer>
+							</div>
+						</article>
+					{% endfor %}
+				</section>
+			{% endif %}
+			{% if paginator|length %}
+				{% if filter is defined and filter is not null %}
+					{{pager.pager('news', paginator, filter)}}
+				{% else %}
+					{{pager.pager('news', paginator)}}
+				{% endif %}
+			{% endif %}
+		</section>
+	</div>
+</section>
+{% endblock %}

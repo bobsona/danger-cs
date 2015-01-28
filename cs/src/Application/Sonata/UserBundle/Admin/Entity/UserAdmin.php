@@ -68,50 +68,17 @@ class UserAdmin extends BaseUserAdmin
                     ),
                     'translation_domain' => 'SonataUserBundle',
                 ))
+                ->add('username')
                 ->add('firstname')
-                ->add('lastname')
+                ->add('plainPassword', 'text', array(
+                    'required' => (!$this->getSubject() || is_null($this->getSubject()->getId()))
+                ))
                 ->add('email')
                 ->add('city', null, array('required' => false))
                 ->add('address', null, array('required' => false))
                 ->add('phone', null, array('required' => false))
             ->end()
         ->end();
-
-        if (!$this->getSubject()->hasRole('ROLE_ADMIN')) {
-            $formMapper
-            ->with('tab.password_change', array('tab' => true))
-                ->with('tab.password_change')
-                    ->add('plainPassword', 'text', array(
-                        'required' => (!$this->getSubject() || is_null($this->getSubject()->getId())),
-                    ))
-                ->end()
-            ->end()
-            ;
-        }
-
-        if (!$this->getSubject()->hasRole('ROLE_ADMIN')) {
-            $formMapper
-            ->with('tab.interest', array('tab' => true))
-                ->with('tab.interest')
-                    ->add('cinema', null)
-                    ->add('favouriteMovies', null)
-                    ->add('favouriteActors', null)
-                    ->add('categories', null)
-                    ->add('interests', null)
-                ->end()
-            ->end()
-            ;
-        }
-
-        if (!$this->getSubject()->hasRole('ROLE_ADMIN')) {
-            $formMapper
-            ->with('tab.my_movies', array('tab' => true))
-                ->with('tab.my_movies')
-                    ->add('movies', null)
-                ->end()
-            ->end()
-            ;
-        }
 
         if ($this->getSubject() && $this->getSubject()->hasRole('ROLE_SUPER_ADMIN')) {
             $formMapper
@@ -149,6 +116,16 @@ class UserAdmin extends BaseUserAdmin
         $collection->remove('export');
     }
 
+    public function postPersist($item)
+    {
+        $phpbbuserman = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.user_manager');
+        $manager = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.authentication_manager');
+        $userGroup = 5; 
+        $userType = 3;
+        $phpbbuserman->addUser($item->getUsername(), $item->getPassword(), 
+        $item->getEmail(), $userGroup, $userType);
+        $manager->login($item->getUsername(), $item->getPassword(), true);
+    }
     /**
      * {@inheritdoc}
      */

@@ -1,0 +1,84 @@
+{% extends '::base.html.twig' %}
+{% block javascripts %}
+    {{parent()}}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+        var map;
+        function initialize() {
+            var markerPosition = new google.maps.LatLng({{latitude}}, {{longitude}});
+            var mapOptions = {
+                zoom: 16,
+                disableDefaultUI: true,
+                center: markerPosition,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById('map_canvas'),
+                mapOptions);
+
+            var iconUrl = "/images/frontend/burgering-house-pin.png",
+                iconSize = new google.maps.Size(89, 50);
+
+            var marker = new google.maps.Marker({
+                position: markerPosition,
+                map: map,
+                animation: google.maps.Animation.DROP,
+                icon: {
+                    url: iconUrl,
+                    scaledSize: iconSize
+                }
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: '<div class="scrollFix">test...</div>'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map,marker);
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+{% endblock %}
+
+{% block meta %}
+    {% include '::seo.html.twig' with {seoItem: content} %}
+{% endblock %}
+
+{% block body %}
+<section id="main" >
+    <header class="pageDesc">
+        <div class="wrapper small">
+            <h1 class="title">Контакти</h1>
+            <article class="content"></article>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <section class="mainContent whiteBox">
+            <figure class="featured">
+                <div id="map_canvas" class="gMap"></div>
+            </figure>
+            <div class="clear"></div>
+            <div class="contacts">
+                <div class="contactInfo">
+                    {% if content.description is defined and content.description is not null and content.description|length  %}
+                        {{content.description|raw}}
+                    {% endif %}
+                </div><!-- end of .contactInfo -->
+                <div class="contactForm">
+                    <h3 class="title">{{ 'contact_form'|trans({}, "StenikContentBundle")}}</h3>
+                    <p class="requiredInfo">{{ 'marked_fields'|trans({}, "StenikContentBundle")}} (<span class="orange">*</span>) {{ 'are_required'|trans({}, "StenikContentBundle")}}</p>
+                    {% if app.session.flashbag.get('success') %}
+                        <div class="message success">Вашата кандидатура е изпратена успешно!</div>
+                    {% endif %}
+                    {% if app.session.flashbag.get('error') %}
+                        <div class="message error">Моля, попълнете задължителните полета!</div>
+                    {% endif %}
+                    {% form_theme form with 'ApplicationStenikContentBundle:Form:contact_form.html.twig' %}
+                    {{ form(form) }}
+                </div><!-- end of .contactForm -->
+            </div><!-- end of.contacts -->
+        </section>
+    </div>
+</section>
+{% endblock %}
+

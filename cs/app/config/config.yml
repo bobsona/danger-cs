@@ -9,13 +9,14 @@ imports:
     - { resource: "@StenikContentBundle/Resources/config/admin.yml" }
     - { resource: "@StenikTranslationsBundle/Resources/config/admin.yml" }
     - { resource: "@StenikBannersBundle/Resources/config/admin.yml" }
-    #- { resource: "@ApplicationSonataUserBundle/Resources/config/services.yml" }
+    - { resource: "@StenikFrontendBundle/Resources/config/services.yml" }
+    - { resource: "@ApplicationSonataUserBundle/Resources/config/services.yml" }
 
 parameters:
     locales: %a2lix_translation_form.locales%
-    # stenik.content.admin.content.class: Application\Stenik\ContentBundle\Admin\ContentAdmin
-    # stenik.news.admin.news.class: Application\Stenik\NewsBundle\Admin\NewsAdmin
-    # stenik.slider.admin.slider.class: Application\Stenik\SliderBundle\Admin\SliderAdmin
+    stenik.content.admin.content.class: Application\Stenik\ContentBundle\Admin\ContentAdmin
+    stenik.news.admin.news.class: Application\Stenik\NewsBundle\Admin\NewsAdmin
+    stenik.slider.admin.slider.class: Application\Stenik\SliderBundle\Admin\SliderAdmin
 
 
 framework:
@@ -181,6 +182,11 @@ sonata_media:
                 - sonata.media.provider.youtube
             formats:
                 index:  { width: 715, height: 409, quality: 90 }
+        stenik_slider:
+            providers:
+                - sonata.media.provider.image
+            formats:
+                index:  { width: 980, height: 250, quality: 90 }
 
     cdn:
         server:
@@ -192,7 +198,7 @@ sonata_media:
             create:     true
     providers:
         image:
-            resizer: sonata.media.resizer.simple
+            resizer: sonata.media.resizer.custom
         file:
             service:    sonata.media.provider.file
             resizer:    false
@@ -274,3 +280,7 @@ gregwar_captcha: ~
 stenik_translations:
     fallback_locale: en      # (required) default locale to use
     managed_locales: [en, bg]    # (required) locales that the bundle have to manage
+
+widop_php_bb:
+    path: %kernel.root_dir%/../web/forum
+    web_path: /forum

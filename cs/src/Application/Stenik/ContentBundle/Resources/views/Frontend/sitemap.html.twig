@@ -1,0 +1,79 @@
+{% extends '::base.html.twig' %}
+
+{% block meta %}
+    {% include '::seo.html.twig' with {seoItem:sitemapContent} %}
+{% endblock %}
+
+{% block body %}
+    <section id="main" >
+        <header class="pageDesc">
+            <div class="wrapper small">
+                <h1 class="title">{{sitemapContent.title}}</h1>
+                    {% if sitemapContent.description is not null and sitemapContent.description|length %}
+                        <article class="content">
+                            {{sitemapContent.description|raw}}
+                        </article>
+                    {% endif %}
+            </div>
+        </header>
+        <div class="wrapper">
+            <section class="mainContent whiteBox">
+                <div class="siteMap">
+                    <div class="col4">
+                        <nav class="sitemapGroup">
+                            <h3 class="title">{{ 'pages'|trans({}, "StenikContentBundle")}}</h3>
+                            <hr>
+                            <ul>
+                                {% for item in content %}
+                                <li><a href="{{ path(item.route, item.routeParams)}}">{{item.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                        <nav class="sitemapGroup">
+                            <h3 class="title">{{ 'partners'|trans({}, "StenikContentBundle")}}</h3>
+                            <hr>
+                            <ul>
+                                {% for item in partners %}
+                                <li><a href="{{item.url}}">{{item.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col4">
+                        <nav class="sitemapGroup">
+                            <h3 class="title">{{ 'news'|trans({}, "StenikContentBundle")}}</h3>
+                            <hr>
+                            <ul>
+                                {% for item in productCategories %}
+                                <li><a href="{{ path(item.route, item.routeParams)}}">{{item.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col4">
+                        <nav class="sitemapGroup">
+                            <h3 class="title">{{ 'events'|trans({}, "StenikContentBundle")}}</h3>
+                            <hr>
+                            <ul>
+                                {% for item in events %}
+                                <li><a href="{{ path(item.route, item.routeParams)}}">{{item.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col4">
+                        <nav class="sitemapGroup">
+                            <h3 class="title">{{ 'categories'|trans({}, "StenikContentBundle")}}</h3>
+                            <hr>
+                            <ul>
+                                {% for item in productCategories %}
+                                <li><a href="{{ path(item.route, item.routeParams)}}">{{item.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+{% endblock %}

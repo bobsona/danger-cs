@@ -1,0 +1,26 @@
+stenik_translations: Translations
+clear-cache: Clear cache
+list:
+  file: File
+  locale: Language
+  trans_unit: Key
+  content: Value
+form:
+  actions: Actions
+  key: Key
+  domain: Domain
+  file: File
+  locale: Language
+  trans_unit: Key
+  content: Value
+td_revision: Revision
+td_timestamp: Date
+td_username: Administrator
+td_action: Actions
+label_view_revision: View revision
+action_edit: View
+action_history: Versions
+
+label_revert_to_revision: Revert to revision
+not_found_revisions: Revisions not found
+translations.cache_removed: 'The cache was removed'

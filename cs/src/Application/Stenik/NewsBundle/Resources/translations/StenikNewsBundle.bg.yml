@@ -1,0 +1,13 @@
+all_news: "Към всички новини"
+form.is_homepage: 'На начална страница'
+list.is_homepage: 'На начална страница'
+form.category: 'Категория'
+category: 'Категория:'
+music: 'Музика'
+food_recipes: 'Рецепти'
+interesting_facts: 'Интересни факти'
+drinks: 'Напитки'
+american_culture: 'Американска култура'
+last_news: 'Последни новини'
+news: 'Новини'
+back: 'Назад към всички новини'

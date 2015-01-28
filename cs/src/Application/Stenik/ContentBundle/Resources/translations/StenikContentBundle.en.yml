@@ -1,0 +1,48 @@
+td_revision: Revision
+td_timestamp: Date
+td_username: Administrator
+td_action: Actions
+label_view_revision: View revision
+action_edit: View
+action_history: Versions
+label_revert_to_revision: Revert to revision
+stenik_content: Content pages
+not_found_revisions: Revisions not found
+actions: Actions
+table.label_actions: Actions
+stenik_landing: Landing page
+stenik_info_box: Telephone box
+list:
+  title: Title
+  path: Path
+  is_hidden: Hidden
+  created_at: Created at
+  actions: Actions
+form:
+  parent: Main object
+  slug: Slug
+  translations: Translations
+  title: Title
+  description: Description
+  meta_title: Meta title
+  meta_description: Meta Description
+  meta_keywords: Meta keywords
+  is_hidden: Hidden
+  general: Main
+  is_seo_visible: Visible only from url
+  created_at: Created at
+  lft: Parent
+  image: Image
+  is_system: 'System page'
+select:
+  parent: '-- Please choose --'
+contact_form: 'Contacts form'
+marked_fields: 'The fields marked with '
+are_required: 'are required!'
+name: '* Name:'
+email: '* E-mail:'
+subject: '* Subject:'
+message: '* Message:'
+this_message: 'This message was generated from web site '
+developed_by: 'developed by '
+form.gallery: 'Галерия'

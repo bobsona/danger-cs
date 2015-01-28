@@ -39,11 +39,11 @@ class AppKernel extends Kernel
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            //new Widop\PhpBBBundle\WidopPhpBBBundle(),
+            new Widop\PhpBBBundle\WidopPhpBBBundle(),
 
-            // new Application\Stenik\NewsBundle\ApplicationStenikNewsBundle(),
-            // new Application\Stenik\ContentBundle\ApplicationStenikContentBundle(),
-            // new Application\Stenik\SliderBundle\ApplicationStenikSliderBundle(),
+            new Application\Stenik\NewsBundle\ApplicationStenikNewsBundle(),
+            new Application\Stenik\ContentBundle\ApplicationStenikContentBundle(),
+            new Application\Stenik\SliderBundle\ApplicationStenikSliderBundle(),
 
             // new Application\Stenik\TranslationsBundle\ApplicationStenikTranslationsBundle(),
 
@@ -53,6 +53,7 @@ class AppKernel extends Kernel
             new Stenik\BackgroundsBundle\StenikBackgroundsBundle(),
             new Stenik\SliderBundle\StenikSliderBundle(),
             new Stenik\BannersBundle\StenikBannersBundle(),
+            new Stenik\FrontendBundle\StenikFrontendBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

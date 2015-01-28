@@ -1,0 +1,21 @@
+{% if slider is defined and  slider is not null %}
+<div id='slidebox'>
+	<div class='inner'>
+	{% if slider|length > 1 %}
+		<div class='left'><div></div></div>
+		<div class='right'><div></div></div>
+	{% endif %}
+		<div class='images'>
+			{% for slide in slider %}
+				{% set description = slide.description|raw %}
+				<div class='slideImage'>
+					 {% thumbnail slide.translations[app.request.locale].file, 'index' with { 'alt': description|raw } %}
+					<a target="{{slide.translations[app.request.locale].target}}" href="{{slide.translations[app.request.locale].url ? :'javascript:;'}}"></a>
+				</div>
+			{% endfor %}
+		</div>
+		<div class='caption'></div>
+		<a class='readMore generalButton'>Виж повече</a>
+	</div>
+</div>
+{% endif %}

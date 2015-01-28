@@ -1,0 +1,79 @@
+{% block form -%}
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+{%- endblock form %}
+
+{% block form_row %}
+    {% set class = '' %}
+    {% if name == 'name' or name == 'email' %}
+        {% set class = 'formItem col2' %}
+    {% elseif name == 'captcha' %}
+        {% set class = 'captcha' %}
+    {% else %}
+        {% set class = 'formItem' %}
+    {% endif %}
+    {% spaceless %}
+        {% if name == 'subject' %}
+            <div class="clear"></div>
+            <div class="{{class}} {% if errors|length > 0 %}error{% endif %}">
+                {{ form_widget(form) }}
+            </div>
+            <div class="clear"></div>
+        {% elseif name == 'message' %}
+            <div class="{{class}} {% if errors|length > 0 %}error{% endif %}">
+                {{ form_widget(form) }}
+            </div>
+            <div class="clear"></div>
+        {% else %}
+            <div class="{{class}} {% if errors|length > 0 %}error{% endif %}">
+                {{ form_widget(form) }}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            {% for error in errors %}
+                <span class="error">{{ error.message }}</span>
+            {% endfor %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock %}
+
+{% block captcha_widget %}
+    {% if is_human %}
+    {% else %}
+        {% spaceless %}
+        <div class="img">
+            <img id="{{ image_id }}" src="{{ captcha_code }}" alt="" title="captcha" width="{{ captcha_width }}" height="{{ captcha_height }}" />
+        </div>
+        {% if reload %}
+            <a id="captcha_reload" class="reloadButton" href="#"><i class="reload"></i></a>
+            <script type="text/javascript">
+                function reload_{{ image_id }}() {
+                    var img = document.getElementById('{{ image_id }}');
+                    img.src = '{{ captcha_code }}?n=' + (new Date()).getTime();
+                }
+                $('#captcha_reload').click(function(e){
+                    e.preventDefault();
+                    reload_{{ image_id }}();
+                })
+            </script>
+        {% endif %}
+        <div class="formItem">
+            {{ form_widget(form) }}
+        </div>
+        {% endspaceless %}
+    {% endif %}
+{% endblock %}
+
+{% block button_widget -%}
+    <button class="button">{{ 'email.send_request'|trans({}, "StenikContentBundle")}}</button>
+{%- endblock button_widget %}
+
+{% block submit_widget -%}
+    {% set type = type|default('submit') %}
+    {{- block('button_widget') -}}
+{%- endblock submit_widget %}

@@ -1,0 +1,38 @@
+all_marked_fields: 'Полетата, отбелязани със звезда'
+are_required: "са задължителни за попълване."
+email.send_request: 'Изпратете запитването'
+contact_name: "Име и фамилия:"
+contact_business: "Фирма:"
+contact_phone: "Телефон:"
+contact_email: "E-mail:"
+contact_subject: "Относно:"
+contact_message: "Коментар или запитване:"
+captcha_input: "Код"
+office_map: "Карта на офиса"
+contact_form_header: "Обратна връзка"
+fill_required_fields: "Възникна грешка при изпращането!"
+request_success: "Вашето съобщение е изпратено!"
+stenik_landing: 'Лендинг страница'
+
+choose_subSection: "Изберете раздел"
+
+general_links: "Основни връзки"
+
+form.image: 'Снимка'
+form.is_system: 'Системна страница'
+Unlink: 'Изтрии'
+contact_form: 'Форма за запитвания'
+marked_fields: 'Полетата отбелязани със звезда'
+are_required: 'са задължителни за попълване!'
+name: '* Име:'
+email: '* E-mail:'
+subject: '* Относно:'
+message: '* Съобщение:'
+this_message: 'Това съобщение е генерирано от уеб сайт '
+developed_by: 'разработен от '
+pages: 'Страници'
+categories: 'Категории'
+news: 'Новини'
+events: 'Събития'
+partners: 'Партньори'
+form.gallery: 'Галерия'

@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+{% block meta %}
+    {% include '::seo.html.twig' with {seoItem: item} %}
+{% endblock %}
+{% block body %}
+<section id="main" >
+	<div class="wrapper">
+		{% if leftSidebar is defined and leftSidebar is not null and leftSidebar|length %}
+			<aside class="sidebar left">
+				<div class="widget blackBox links">
+					<h3 class="title">{{ 'last_news'|trans({}, "StenikNewsBundle")}}</h3>
+					{{leftSidebar|raw}}
+				</div>
+			</aside>
+		{% endif %}
+		{% if item is defined and item is not null %}
+			<section class="mainContent whiteBox">
+				{% if item.image is defined and item.image is not null %}
+					<figure class="featured">
+						{% thumbnail item.image, 'view' %}
+					</figure>
+				{% endif %}
+				<header class="header">
+					<div class="shareTools">
+						<div class="addthis_native_toolbox"></div>
+					</div>
+					<h1 class="title">{{item.title}}</h1>
+					<div class="meta">
+						<div class="attr">
+							<span class="item"><i class="calendar"></i>{{item.publishedDate|date('d.m.Y')}}</span>
+						</div>
+						<div class="attr">
+							<span class="item"><i class="list"></i>{{ 'category'|trans({}, "StenikNewsBundle")}} <a href="#" title="">{{categoriesMapping[item.category]}}</a></span>
+						</div>
+					</div>
+				</header>
+				{% if item.description is defined and item.description is not null and item.description|length %}
+					<article class="content">
+						{{item.description|raw}}
+						<hr />
+						<a href="{{ path("news")}}" class="backLink">{{ 'back'|trans({}, "StenikNewsBundle")}}</a>
+					</article>
+				{% endif %}
+			</section><!-- end of .mainContent -->
+		{% endif %}
+	</div>
+</section>
+{% endblock %}

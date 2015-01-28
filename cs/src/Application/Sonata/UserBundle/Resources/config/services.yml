@@ -1,6 +1,13 @@
+parameters:
+  security.authentication.success_handler.class: Application\Sonata\UserBundle\Security\Http\Authentication\AuthenticationSuccessHandler
 services:
   stenik.registration.form.type:
     class: Application\Sonata\UserBundle\Form\Type\RegistrationType
     tags:
       - { name: form.type, alias: stenik_user_registration }
     arguments:    [@translator]
+ 
+  security.authentication.success_handler:
+    class: %security.authentication.success_handler.class%
+    public: false
+    arguments:  ['@router', '@widop_php_bb.authentication_manager']

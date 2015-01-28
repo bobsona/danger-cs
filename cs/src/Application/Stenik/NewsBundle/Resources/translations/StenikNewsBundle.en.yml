@@ -1,0 +1,44 @@
+td_revision: Revision
+td_timestamp: Date
+td_username: Administrator
+td_action: Actions
+label_view_revision: View revision
+action_edit: View
+action_history: Versions
+label_revert_to_revision: Revert to revision
+stenik_news: News
+not_found_revisions: Revisions not found
+actions: Actions
+list:
+  title: Title
+  path: Path
+  is_hidden: Hidden
+  created_at: Created at
+  actions: Actions
+  is_homepage: 'On homepage'
+form:
+  slug: Slug
+  translations: Translations
+  title: Title
+  simple_description: Simple description
+  description: Description
+  meta_title: Meta title
+  meta_description: Meta Description
+  meta_keywords: Meta keywords
+  image: Image
+  gallery: Gallery
+  is_hidden: Hidden
+  general: Main
+  created_at: Created at
+  is_homepage: On homepage
+  published_date: Published date
+  category: 'Category'
+music: 'Music'
+food_recipes: 'Food recipes'
+interesting_facts: 'Interesting facts'
+drinks: 'Drinks'
+american_culture: 'American culture'
+category: 'Category:'
+last_news: 'Last news'
+news: 'News'
+back: 'Назад към всички новини'

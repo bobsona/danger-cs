@@ -1,0 +1,34 @@
+parameters:
+    stenik.content.admin.content.class: Application\Stenik\ContentBundle\Admin\ContentAdmin
+    stenik.content.admin.content.controller: StenikCoreBundle:TreeCRUD
+    stenik.content.admin.content.translation: StenikContentBundle
+services:
+    stenik.admin.landing_page:
+        class: Application\Stenik\ContentBundle\Admin\LandingPageAdmin
+        arguments: [~, Application\Stenik\ContentBundle\Entity\LandingPage, StenikCoreBundle:HistoryCRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "stenik_site", label: "stenik_landing"}
+        calls:
+            - [ setTranslationDomain, [StenikContentBundle]]
+
+    stenik.content.admin.content:
+        class: %stenik.content.admin.content.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "stenik_site", label: "stenik_content" }
+        arguments:
+            - ~
+            - %stenik.content.admin.content.entity%
+            - %stenik.content.admin.content.controller%
+        calls:
+            - [ setTranslationDomain, [%stenik.content.admin.content.translation%]]
+
+    stenik.content.admin.info_box:
+        class: Application\Stenik\ContentBundle\Admin\InfoBoxAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "stenik_site", label: "stenik_info_box" }
+        arguments:
+            - ~
+            - Application\Stenik\ContentBundle\Entity\InfoBox
+            - %stenik.content.admin.content.controller%
+        calls:
+            - [ setTranslationDomain, [%stenik.content.admin.content.translation%]]
