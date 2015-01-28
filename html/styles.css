@@ -688,12 +688,25 @@ h1.alt
 	vertical-align: top;
 }
 
+#sidebar .lightboxfix
+{
+	display: inline-block;
+	margin: 0 0 17px 17px;
+	width: 140px;
+	height: 140px;
+	vertical-align: top;
+}
+
 #sidebar img
 {
 	width: 140px;
 	height: 140px;
 }
-
+#sidebar .fixche
+{
+	width: 300px;
+	height: 600px;
+}
 .leftColumn article
 {
 	padding-bottom: 20px;
