@@ -41,7 +41,6 @@ class AuthenticationSuccessHandler implements AuthenticationSuccessHandlerInterf
    function onAuthenticationSuccess(Request $request, TokenInterface $token)
    {
       $user = $token->getUser();
-      //var_dump($referer = $request->headers->get('referer'));exit;
       return new RedirectResponse($this->router->generate('sonata_admin_dashboard'));
    }
 }

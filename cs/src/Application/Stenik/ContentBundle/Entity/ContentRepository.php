@@ -33,7 +33,7 @@ class ContentRepository extends BaseContentRepository
      * @var offset integer
      * @return array 
      */
-    public function findAllByLocale($locale)
+    public function findAllByLocale($locale, $limit=null, $offset = null)
     {
         $qb = $this->createQueryBuilder('c')
             ->leftJoin('c.translations', 't')

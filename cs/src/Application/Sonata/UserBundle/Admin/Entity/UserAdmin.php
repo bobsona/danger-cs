@@ -118,6 +118,32 @@ class UserAdmin extends BaseUserAdmin
 
     public function postPersist($item)
     {
+        $this->createPhpbbUser($item);
+    }
+
+    public function postUpdate($item)
+    {
+        $this->updatePhpbbUser($item);
+    }
+
+    private function updatePhpbbUser($item)
+    {
+        $phpbbuserman = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.user_manager');
+        $manager = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.authentication_manager');
+        $userId = $phpbbuserman->getUserId($item->getUsername());
+        if ($userId) {   
+            $manager->logout(); 
+            $phpbbuserman->updateUser($item->getUsername(), $item->getPassword(),$item->getEmail());
+            $manager->login($item->getUsername(), $item->getPassword(), true);
+        }else{
+            $this->createPhpbbUser($item);
+        }
+
+        return $item;
+    }
+
+    private function createPhpbbUser($item)
+    {
         $phpbbuserman = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.user_manager');
         $manager = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.authentication_manager');
         $userGroup = 5; 
@@ -125,6 +151,18 @@ class UserAdmin extends BaseUserAdmin
         $phpbbuserman->addUser($item->getUsername(), $item->getPassword(), 
         $item->getEmail(), $userGroup, $userType);
         $manager->login($item->getUsername(), $item->getPassword(), true);
+
+        return $item;
+    }
+
+    public function postRemove($item)
+    {
+        $phpbbuserman = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.user_manager');
+        $manager = $this->getConfigurationPool()->getContainer()->get('widop_php_bb.authentication_manager');
+        $manager->logout();
+        $phpbbuserman->removeUser($item->getUsername());
+
+        return $item;
     }
     /**
      * {@inheritdoc}

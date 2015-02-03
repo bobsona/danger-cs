@@ -1786,26 +1786,42 @@ function utf8_case_fold_nfc($text, $option = 'full')
 * @param	mixed	$strings	a string or an array of strings to normalize
 * @return	mixed				the normalized content, preserving array keys if array given.
 */
-function utf8_normalize_nfc($strings){
-   
-   if (empty($strings)){return $strings;}
+function utf8_normalize_nfc($strings)
+{
+	if (empty($strings))
+	{
+		return $strings;
+	}
 
-   if (!class_exists('utf_normalizer')){
-      global $phpbb_root_path, $phpEx;
-      include($phpbb_root_path . 'includes/utf/utf_normalizer.' . $phpEx);
-      $utfn = new utf_normalizer();
-   }
+	if (!class_exists('utf_normalizer'))
+	{
+		global $phpbb_root_path, $phpEx;
+		include($phpbb_root_path . 'includes/utf/utf_normalizer.' . $phpEx);
+	}
 
-   if (!is_array($strings)){$utfn->nfc($strings);}
-   
-   else if (is_array($strings)){
-      foreach ($strings as $key => $string){
-         if (is_array($string)){foreach ($string as $_key => $_string){$utfn->nfc($strings[$key][$_key]);}}
-         else{$utfn->nfc($strings[$key]);}
-      }
-   }
+	if (!is_array($strings))
+	{
+		utf_normalizer::nfc($strings);
+	}
+	else if (is_array($strings))
+	{
+		foreach ($strings as $key => $string)
+		{
+			if (is_array($string))
+			{
+				foreach ($string as $_key => $_string)
+				{
+					utf_normalizer::nfc($strings[$key][$_key]);
+				}
+			}
+			else
+			{
+				utf_normalizer::nfc($strings[$key]);
+			}
+		}
+	}
 
-   return $strings;
+	return $strings;
 }
 
 /**

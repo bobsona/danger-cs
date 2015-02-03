@@ -2,8 +2,6 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
-use Symfony\Component\HttpFoundation\Session\Session;
-
 
 // If you don't want to setup permissions the proper way, just uncomment the following PHP line
 // read http://symfony.com/doc/current/book/installation.html#configuration-and-setup for more information
@@ -23,15 +21,10 @@ $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 Debug::enable();
 
 require_once __DIR__.'/../app/AppKernel.php';
-
+ini_set('display_errors', 'On');
 $kernel = new AppKernel('dev', true);
 $kernel->loadClassCache();
 $request = Request::createFromGlobals();
-$req = $request;
-ini_set('display_errors', 'On');
-
-$response = $kernel->handle($req);
+$response = $kernel->handle($request);
 $response->send();
-$kernel->terminate($req, $response);
-
-
+$kernel->terminate($request, $response);

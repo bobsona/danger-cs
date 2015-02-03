@@ -25,7 +25,7 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\UserBundle\SonataUserBundle(),
-
+            new Sonata\SeoBundle\SonataSeoBundle(),
             new Stenik\ContentBundle\StenikContentBundle(),
             new Stenik\CoreBundle\StenikCoreBundle(),
             new Stenik\NewsBundle\StenikNewsBundle(),
@@ -53,6 +53,8 @@ class AppKernel extends Kernel
             new Stenik\BackgroundsBundle\StenikBackgroundsBundle(),
             new Stenik\SliderBundle\StenikSliderBundle(),
             new Stenik\BannersBundle\StenikBannersBundle(),
+            new Stenik\PublishWorkflowBundle\StenikPublishWorkflowBundle(),
+            new Stenik\SEOBundle\StenikSEOBundle(),
             new Stenik\FrontendBundle\StenikFrontendBundle(),
         );
 

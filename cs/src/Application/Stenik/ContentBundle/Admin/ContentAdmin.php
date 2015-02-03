@@ -50,18 +50,6 @@ class ContentAdmin extends BaseContentAdmin
                             'data-theme' => 'bbcode'
                         )
                     ),
-                    'meta_title' => array(
-                        'label' => 'form.meta_title',
-                        'required' => false,
-                    ),
-                    'meta_description' => array(
-                        'label' => 'form.meta_description',
-                        'required' => false,
-                    ),
-                    'meta_keywords' => array(
-                        'label' => 'form.meta_keywords',
-                        'required' => false,
-                    ),
                     'image' => array( 
 			            'field_type' => 'sonata_media_type', 
 			            'provider' => 'sonata.media.provider.image',
@@ -99,9 +87,7 @@ class ContentAdmin extends BaseContentAdmin
             ->end()
         ->end()
 
-        ->with('More', array('collapsed' => true, 'class' => 'col-md-3'))
-                ->add('is_hidden', 'checkbox', array('required'=>false, 'label' => 'form.is_hidden'))
-                ->add('is_seo_visible', 'checkbox',  array('required'=>false, 'label' => 'form.is_seo_visible'));
+        ->with('More', array('collapsed' => true, 'class' => 'col-md-3'));
             if ($stenikAdmin)
                 $formMapper->add('is_system', 'checkbox', array('required'=>false, 'label' => 'form.is_system'));
             

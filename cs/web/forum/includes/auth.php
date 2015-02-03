@@ -153,7 +153,6 @@ class auth
 	function acl_get($opt, $f = 0)
 	{
 		$negate = false;
-
 		if (strpos($opt, '!') === 0)
 		{
 			$negate = true;
@@ -185,7 +184,6 @@ class auth
 				}
 			}
 		}
-
 		// Founder always has all global options set to true...
 		return ($negate) ? !$this->cache[$f][$opt] : $this->cache[$f][$opt];
 	}
@@ -343,7 +341,6 @@ class auth
 		{
 			$acl |= $this->acl_get($opt, $f);
 		}
-
 		return $acl;
 	}
 

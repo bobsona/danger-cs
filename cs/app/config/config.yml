@@ -11,6 +11,7 @@ imports:
     - { resource: "@StenikBannersBundle/Resources/config/admin.yml" }
     - { resource: "@StenikFrontendBundle/Resources/config/services.yml" }
     - { resource: "@ApplicationSonataUserBundle/Resources/config/services.yml" }
+    - { resource: "@StenikPublishWorkflowBundle/Resources/config/services.yml" }
 
 parameters:
     locales: %a2lix_translation_form.locales%

@@ -36,8 +36,11 @@
         "sonata-project/easy-extends-bundle": "dev-master",
         "sonata-project/media-bundle": "2.3.*@dev",
         "sonata-project/intl-bundle": "dev-master",
+        "sonata-project/seo-bundle": "dev-master",
 
         "stenik/core-bundle": "dev-master",
+        "stenik/seo-bundle": "dev-master",
+        "stenik/publish-workflow-bundle": "dev-master",
         "stenik/content-bundle": "dev-master",
         "stenik/translations-bundle": "dev-master",
         "stenik/settings-bundle": "dev-master",
@@ -98,6 +101,14 @@
         {
             "type": "vcs",
             "url": "git@office.stenikgroup.com:stenik-core-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-publish-workflow-bundle"
+        },
+        {
+            "type": "vcs",
+            "url": "git@office.stenikgroup.com:stenik-seo-bundle"
         },
         {
             "type": "vcs",

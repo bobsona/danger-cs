@@ -4,9 +4,9 @@
 $dbms = 'mysqli';
 $dbhost = '';
 $dbport = '';
-$dbname = 'demo_danger-cs';
-$dbuser = 'root';
-$dbpasswd = 'iazneznam';
+$dbname = 'phpbb';
+$dbuser = 'demo';
+$dbpasswd = 'stenikdemo';
 $table_prefix = 'phpbb_';
 $acm_type = 'file';
 $load_extensions = '';
